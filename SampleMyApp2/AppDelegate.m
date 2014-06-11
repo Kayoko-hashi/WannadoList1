@@ -43,13 +43,7 @@
     [rootViewController setLeftMenuViewController:_leftMenuViewContoroller];
     [rootViewController setCenterViewController:tabBarContoroller];
     
-  /*  // タブのフォント指定
-    UIFont *tabFont = [UIFont fontWithName:@"HelveticaNeue" size:9.0f];
-    
-    // タブのタイトル色指定
-    NSDictionary *attributesNormal = @{NSFontAttributeName:tabFont, NSForegroundColorAttributeName:[UIColor whiteColor]};
-    [[UITabBarItem appearance] setTitleTextAttributes:attributesNormal forState:UIControlStateNormal];
-    */
+
      return YES;
 }
 							

@@ -102,7 +102,7 @@
 
     //画像の場所の用意
     //pilistのlimitが初期のときだけ未定の画像を表示
-    BaseImgView = [[UIImageView alloc]initWithFrame:CGRectMake(125, 85, 70, 70)];
+    BaseImgView = [[UIImageView alloc]initWithFrame:CGRectMake(125, 70, 70, 70)];
     [self.view addSubview:BaseImgView];
     //[self.view sendSubviewToBack:BaseImgView];
     [self.view bringSubviewToFront:self.AgeLable];
@@ -154,8 +154,8 @@
     
     TodoTitleTF = [[UITextField alloc]init];
     TodoTitleTF.delegate =self;
-    TodoTitleTF.frame = CGRectMake(20, 170, 280, 40);
-    //TodoTitleTF.adjustsFontSizeToFitWidth = YES;
+    TodoTitleTF.frame = CGRectMake(20, 165, 280, 40);
+    TodoTitleTF.font = [UIFont fontWithName:@"Hiragino Kaku Gothic Pro" size:13];
     TodoTitleTF.textColor = [UIColor darkGrayColor];
     [self.view addSubview:TodoTitleTF];
     
@@ -243,12 +243,33 @@
     return true;
 }
 
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    // 最大入力文字数
+    int maxInputLength = 28;
+    
+    // 入力済みのテキストを取得
+    NSMutableString *str = [TodoTitleTF.text mutableCopy];
+    
+    // 入力済みのテキストと入力が行われたテキストを結合
+    [str replaceCharactersInRange:range withString:string];
+    
+    if ([str length] > maxInputLength) {
+        // ※ここに文字数制限を超えたことを通知する処理を追加
+        
+        return NO;
+    }
+    
+    return YES;
+}
+
 -(void)StyleOfTextView{
 
     self.textView.layer.borderWidth = 2;
     self.textView.layer.borderColor = [[UIColor colorWithRed:0.69 green:0.702 blue:0.631 alpha:1.0]CGColor];
     self.textView.layer.cornerRadius = 8;
     self.textView.delegate = self;
+    self.textView.font = [UIFont fontWithName:@"Hiragino Kaku Gothic Pro" size:13];
 
 }
 
@@ -291,7 +312,7 @@
     targetAge = [[NSMutableArray alloc]init];
     
     
-    for ( int i = 0; i<121-copyAge; i++) {
+    for ( int i = 0; i<100-copyAge; i++) {
         
         [targetAge addObject:[NSString stringWithFormat:@"%d",age+i]];
         
@@ -357,6 +378,7 @@
         
         }
    cell.textLabel.textColor = [UIColor darkGrayColor];
+   cell.textLabel.font = [UIFont fontWithName:@"Hiragino Kaku Gothic Pro" size:15];
      return cell;
     
 }
@@ -643,15 +665,15 @@
     
     self.UpperView.frame = CGRectMake(10, up_y, self.UpperView.bounds.size.width, self.UpperView.bounds.size.height);
     
-    self.AgeLable.frame = CGRectMake(135, -20, 70, 77);
+    self.AgeLable.frame = CGRectMake(135, -40, 70, 77);
     
-    self.textView.frame = CGRectMake(15, 125, self.textView.bounds.size.width, self.textView.bounds.size.height);
+    self.textView.frame = CGRectMake(15, 105, self.textView.bounds.size.width, self.textView.bounds.size.height);
     
-    self.DetailTable.frame = CGRectMake(15, 25, self.DetailTable.bounds.size.width, self.DetailTable.bounds.size.height);
+    self.DetailTable.frame = CGRectMake(15, 5, self.DetailTable.bounds.size.width, self.DetailTable.bounds.size.height);
     
-    BaseImgView.frame = CGRectMake(125, -20, 70,70);
+    BaseImgView.frame = CGRectMake(125, -40, 70,70);
     
-    TodoTitleTF.frame = CGRectMake(15, 25, TodoTitleTF.bounds.size.width, TodoTitleTF.bounds.size.height);
+    TodoTitleTF.frame = CGRectMake(15, 5, TodoTitleTF.bounds.size.width, TodoTitleTF.bounds.size.height);
 
     
     [UIView commitAnimations];
@@ -666,15 +688,15 @@
     
     self.UpperView.frame = CGRectMake(0, 0 , self.UpperView.bounds.size.width, self.UpperView.bounds.size.height);
     
-    self.AgeLable.frame = CGRectMake(135, 80, 70, 77);
+    self.AgeLable.frame = CGRectMake(135, 65, 70, 77);
     
     self.textView.frame = CGRectMake(20, 326, self.textView.bounds.size.width, self.textView.bounds.size.height);
     
     self.DetailTable.frame = CGRectMake(15, 220, self.DetailTable.bounds.size.width, self.DetailTable.bounds.size.height);
     
-    BaseImgView.frame = CGRectMake(125, 85, 70, 70);
+    BaseImgView.frame = CGRectMake(125, 70, 70, 70);
     
-    TodoTitleTF.frame = CGRectMake(20, 170, TodoTitleTF.bounds.size.width, TodoTitleTF.bounds.size.height);
+    TodoTitleTF.frame = CGRectMake(20, 165, TodoTitleTF.bounds.size.width, TodoTitleTF.bounds.size.height);
 
     
     

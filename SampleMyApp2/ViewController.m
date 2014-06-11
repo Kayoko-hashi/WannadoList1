@@ -98,7 +98,7 @@
 
 - (UIBarButtonItem *)leftMenuBarButtonItem {
     return [[UIBarButtonItem alloc]
-            initWithImage:[UIImage imageNamed:@"30menu-02.png"]
+            initWithImage:[UIImage imageNamed:@"resizedMenu-09.png"]
             style:UIBarButtonItemStyleBordered
             target:self
             action:@selector(leftSideMenuButtonPressed:)];
@@ -131,6 +131,7 @@
     self.tabBarController.tabBar.barTintColor = [UIColor colorWithRed:0.69 green:0.702 blue:0.631 alpha:1.0];
     self.tabBarController.tabBar.tintColor = [UIColor colorWithRed:0.69 green:0.702 blue:0.631 alpha:1.0];
     self.tabBarController.tabBar.barStyle = UIBarStyleBlackOpaque;
+
  
 }
 
@@ -298,6 +299,27 @@
     
     return YES;
 
+}
+
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    // 最大入力文字数
+    int maxInputLength = 28;
+    
+    // 入力済みのテキストを取得
+    NSMutableString *str = [self.myTextField.text mutableCopy];
+    
+    // 入力済みのテキストと入力が行われたテキストを結合
+    [str replaceCharactersInRange:range withString:string];
+    
+    if ([str length] > maxInputLength) {
+        // ※ここに文字数制限を超えたことを通知する処理を追加
+        
+        return NO;
+    }
+    
+    return YES;
 }
 
 //リターンを押した時の処理。
@@ -470,6 +492,7 @@
     static NSString *CellIdentifier = @"CellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
+    
         if(cell == nil){
         
                 cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
@@ -487,6 +510,7 @@
         
         //取り出した子ディクショナリの中からKeyがTODOの要素をセルに返す
         cell.textLabel.text = [NSString stringWithFormat:@"%@",[listContents objectForKey:@"TODO"]];
+        
             }else{
     
                 BOOL flag;
@@ -505,6 +529,7 @@
                                 }
                     }
      cell.textLabel.textColor = [UIColor darkGrayColor];
+     cell.textLabel.font = [UIFont fontWithName:@"Hiragino Kaku Gothic Pro" size:16];
     return cell;
     
 }

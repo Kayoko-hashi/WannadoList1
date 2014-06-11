@@ -56,13 +56,16 @@
     //ストリング型の変数の中にhtmlファイルを保存
     NSString *html = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:NULL];
     
+    
     //プロパティリストを読む
     [self SelctPlist];
     myArray = [NSMutableArray arrayWithContentsOfFile:wannadoFilepath];
     
+    
     //プロパティリストの中から、Key:limitのvalueを全部取り出して配列にする
     NSArray *LimitArray = [[NSArray alloc]init];
     LimitArray = [myArray valueForKeyPath:@"Limit"];
+    
     
     //ここでmutableにしないとエラーになる。
     NSMutableArray *LimitArrayM = [[NSMutableArray alloc]init];
@@ -83,6 +86,9 @@
         
     }
 
+    if ( LimitArrayM.count != 0) {
+        
+    
     
     //文字列が消去された配列をソート
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:nil ascending:NO];
@@ -141,9 +147,69 @@
      }
 }
     
+    int count = [sortedToDoArray count];
+    int i = 1;
+    int result = 0;
+    //NSMutableArray *MArray = [[NSMutableArray alloc]init];
+    NSString *oneSet;
+    NSString *PoneSet;
+    
+    
+    //単数バージョン
+    NSString *Divcontainer = @"<div class =\"container\"><div id =\"text\"><dl id=\"acMenu\"><dt>";
+    NSString *ToDoTitle1 = [sortedToDoArray objectAtIndex:result];
+    NSString *closeToDoTitle = @"</dt><dd></dd></dl></div>";
+    NSString *opneAge = @"<div class = \"img\"><dl id =\"age\">";
+    NSString *closeAge = @"</dl></div></div>";
+    oneSet = @"";
+    PoneSet = oneSet;
+    //<li>ついてるやつを保存する用のストリング型の変数
+    NSString *strForLi = [[NSString alloc]init];
+    
+    for ( i=0; i < count; i++) {
+        
+        NSString *PToDoTitle1;
+        NSString *PAge;
+        PToDoTitle1= [sortedToDoArray objectAtIndex:i];
+        PAge= [LimitArrayM2 objectAtIndex:i];
+        PoneSet = [[[[[Divcontainer stringByAppendingString:PToDoTitle1]stringByAppendingString:closeToDoTitle]stringByAppendingString:opneAge]stringByAppendingString:PAge]stringByAppendingString:closeAge];
+        
+        if( i < count-1){
+            ToDoTitle1 = [sortedToDoArray objectAtIndex:i+1];
+            
+            BOOL bl = [ToDoTitle1 hasPrefix:@"<li"];
+            if(bl){
+                i++;
+                while(bl){
+                    
+                    strForLi = [strForLi stringByAppendingString:ToDoTitle1];
+                    i++;
+                    if(i==count){
+                        break;
+                    }
+                    ToDoTitle1 = [sortedToDoArray objectAtIndex:i];
+                    bl = [ToDoTitle1 hasPrefix:@"<li"];
+                }
+                i--;
+                strForLi = [NSString stringWithFormat:@"<dd>%@</dd>",strForLi];
+                PoneSet = [PoneSet stringByReplacingOccurrencesOfString:@"<dd></dd>" withString:strForLi];
+                oneSet = [oneSet stringByAppendingString:PoneSet];
+                strForLi = @"";
+                
+            }else{
+                
+                oneSet = [oneSet stringByAppendingString:PoneSet];
+                
+            }
+        }else{
+            
+            PoneSet = [[[[[Divcontainer stringByAppendingString:PToDoTitle1]stringByAppendingString:closeToDoTitle]stringByAppendingString:opneAge]stringByAppendingString:PAge]stringByAppendingString:closeAge];
+            oneSet = [oneSet stringByAppendingString:PoneSet];
+        }
+    }
 
     
-    
+ /*
     
     int count = [sortedToDoArray count];
     int i = 1;
@@ -202,6 +268,7 @@
                 
             }
             
+            
         
             
         }
@@ -218,7 +285,7 @@
     }
     
     
-    /*
+  
     //複数バージョン
     //Divcontainer,
     NSString *mToDoTitle1;
@@ -246,6 +313,8 @@
     
     //webViewに表示させる
     [_webView loadHTMLString:htmlNew baseURL:[NSURL fileURLWithPath:path]];
+    
+    }
 
 }
 
@@ -254,9 +323,24 @@
 {
     [super viewDidLoad];
     
-    
-    
+    // ステータスバーの表示/非表示メソッド呼び出し
+    if ([self respondsToSelector:@selector(setNeedsStatusBarAppearanceUpdate)]) {
+        // iOS 7以降
+        [self prefersStatusBarHidden];
+        [self performSelector:@selector(setNeedsStatusBarAppearanceUpdate)];
+    } else {
+        // iOS 7未満
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationSlide];
+    }
 }
+
+// ステータスバーの非表示
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+    
+    
 
 
 

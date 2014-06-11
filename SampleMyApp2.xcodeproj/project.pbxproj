@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D7264223F5C44BF5AB4DAAB9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 29055CAFB42A479AB6B4DB91 /* libPods.a */; };
+		EF063A601947EB9D007E8475 /* arrowLine-05.png in Resources */ = {isa = PBXBuildFile; fileRef = EF063A5F1947EB9D007E8475 /* arrowLine-05.png */; };
+		EF063A641948060F007E8475 /* resizedMenu-09.png in Resources */ = {isa = PBXBuildFile; fileRef = EF063A631948060F007E8475 /* resizedMenu-09.png */; };
 		EF13E8A3193C601200CF58D7 /* cirX-01.png in Resources */ = {isa = PBXBuildFile; fileRef = EF13E8A2193C601200CF58D7 /* cirX-01.png */; };
 		EF596B1C192621A400B85A6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF596B1B192621A400B85A6F /* Foundation.framework */; };
 		EF596B1E192621A400B85A6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF596B1D192621A400B85A6F /* CoreGraphics.framework */; };
@@ -70,6 +72,8 @@
 /* Begin PBXFileReference section */
 		29055CAFB42A479AB6B4DB91 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		84C40AAE6BC84AC787DA8DF4 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		EF063A5F1947EB9D007E8475 /* arrowLine-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowLine-05.png"; sourceTree = "<group>"; };
+		EF063A631948060F007E8475 /* resizedMenu-09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resizedMenu-09.png"; sourceTree = "<group>"; };
 		EF13E8A2193C601200CF58D7 /* cirX-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cirX-01.png"; sourceTree = "<group>"; };
 		EF596B18192621A400B85A6F /* SampleMyApp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleMyApp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF596B1B192621A400B85A6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -263,6 +267,7 @@
 		EF8691F4193D6E62000363D6 /* markup */ = {
 			isa = PBXGroup;
 			children = (
+				EF063A5F1947EB9D007E8475 /* arrowLine-05.png */,
 				EF86923F193E2CC0000363D6 /* 52-53.png */,
 				EF869240193E2CC0000363D6 /* 52line.png */,
 				EF869241193E2CC0000363D6 /* 298line.png */,
@@ -278,6 +283,7 @@
 		EFB8FB8D194436ED00BBCFD0 /* 40icons */ = {
 			isa = PBXGroup;
 			children = (
+				EF063A631948060F007E8475 /* resizedMenu-09.png */,
 				EFFC97831944E3F60034BE53 /* pencil-14-14.png */,
 				EFFC978D194544020034BE53 /* protDesign-08.png */,
 				EFFC977D1944D37B0034BE53 /* 50-02.png */,
@@ -375,6 +381,7 @@
 				EFCDA6621934708D00E9AA38 /* AddNewCategoryCell.xib in Resources */,
 				EF596B34192621A400B85A6F /* Images.xcassets in Resources */,
 				EF869248193E9A63000363D6 /* index.html in Resources */,
+				EF063A601947EB9D007E8475 /* arrowLine-05.png in Resources */,
 				EF869246193E2CC0000363D6 /* arrow.png in Resources */,
 				EFFC9786194512650034BE53 /* non-13.png in Resources */,
 				EF869243193E2CC0000363D6 /* 52-53.png in Resources */,
@@ -384,6 +391,7 @@
 				EFFC978C194541C20034BE53 /* protDesign-07.png in Resources */,
 				EFFC978A19453F3B0034BE53 /* launch-02.png in Resources */,
 				EFFC978E194544020034BE53 /* protDesign-08.png in Resources */,
+				EF063A641948060F007E8475 /* resizedMenu-09.png in Resources */,
 				EFB8FB711943F7C800BBCFD0 /* 30menu-02.png in Resources */,
 				EF596B26192621A400B85A6F /* InfoPlist.strings in Resources */,
 				EF13E8A3193C601200CF58D7 /* cirX-01.png in Resources */,
