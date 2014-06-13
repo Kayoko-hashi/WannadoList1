@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>26B6B2B0-601F-4217-A896-65F539392E3C</string>
+	<key>IDESourceControlProjectName</key>
+	<string>SampleMyApp2</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1BABC465-2071-4CEE-B1A2-82D92E79F49D</key>
+		<string>https://github.com/Kayoko-hashi/WannadoList1.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>SampleMyApp2.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1BABC465-2071-4CEE-B1A2-82D92E79F49D</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Kayoko-hashi/WannadoList1.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1BABC465-2071-4CEE-B1A2-82D92E79F49D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1BABC465-2071-4CEE-B1A2-82D92E79F49D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>しかたない</string>
+		</dict>
+	</array>
+</dict>
+</plist>
