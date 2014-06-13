@@ -428,7 +428,7 @@
     
     //ディクショナリを_myArrayに追加
     [_myArray addObject:tmpDictionary];
-    NSLog(@"%@",_myArray);
+    
     
 }
 
