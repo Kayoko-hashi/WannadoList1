@@ -415,8 +415,9 @@
         }
         
     }
+    
 
-    //_myArrayに書き込まれるディクショナリを定義
+    //_myArrayに書き込まれるディクショナリを定義！！！！！
     NSMutableDictionary *tmpDictionary =[NSMutableDictionary dictionary];
     targetAge = 0;
     [tmpDictionary setObject:_text forKey:@"TODO"];
