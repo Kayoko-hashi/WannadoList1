@@ -11,6 +11,10 @@
 		EF063A601947EB9D007E8475 /* arrowLine-05.png in Resources */ = {isa = PBXBuildFile; fileRef = EF063A5F1947EB9D007E8475 /* arrowLine-05.png */; };
 		EF063A641948060F007E8475 /* resizedMenu-09.png in Resources */ = {isa = PBXBuildFile; fileRef = EF063A631948060F007E8475 /* resizedMenu-09.png */; };
 		EF13E8A3193C601200CF58D7 /* cirX-01.png in Resources */ = {isa = PBXBuildFile; fileRef = EF13E8A2193C601200CF58D7 /* cirX-01.png */; };
+		EF257927195039DB00404833 /* check-09.png in Resources */ = {isa = PBXBuildFile; fileRef = EF257925195039DB00404833 /* check-09.png */; };
+		EF257928195039DB00404833 /* check-10.png in Resources */ = {isa = PBXBuildFile; fileRef = EF257926195039DB00404833 /* check-10.png */; };
+		EF39E964194ADC56006D8077 /* checkListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EF39E962194ADC56006D8077 /* checkListCell.m */; };
+		EF39E965194ADC56006D8077 /* checkListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EF39E963194ADC56006D8077 /* checkListCell.xib */; };
 		EF596B1C192621A400B85A6F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF596B1B192621A400B85A6F /* Foundation.framework */; };
 		EF596B1E192621A400B85A6F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF596B1D192621A400B85A6F /* CoreGraphics.framework */; };
 		EF596B20192621A400B85A6F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF596B1F192621A400B85A6F /* UIKit.framework */; };
@@ -75,6 +79,11 @@
 		EF063A5F1947EB9D007E8475 /* arrowLine-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowLine-05.png"; sourceTree = "<group>"; };
 		EF063A631948060F007E8475 /* resizedMenu-09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "resizedMenu-09.png"; sourceTree = "<group>"; };
 		EF13E8A2193C601200CF58D7 /* cirX-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cirX-01.png"; sourceTree = "<group>"; };
+		EF257925195039DB00404833 /* check-09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-09.png"; sourceTree = "<group>"; };
+		EF257926195039DB00404833 /* check-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "check-10.png"; sourceTree = "<group>"; };
+		EF39E961194ADC56006D8077 /* checkListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = checkListCell.h; sourceTree = "<group>"; };
+		EF39E962194ADC56006D8077 /* checkListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = checkListCell.m; sourceTree = "<group>"; };
+		EF39E963194ADC56006D8077 /* checkListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = checkListCell.xib; sourceTree = "<group>"; };
 		EF596B18192621A400B85A6F /* SampleMyApp2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleMyApp2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF596B1B192621A400B85A6F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		EF596B1D192621A400B85A6F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -222,6 +231,9 @@
 				EF8C91AF193834F900297189 /* RemovableCell.h */,
 				EF8C91B0193834F900297189 /* RemovableCell.m */,
 				EF8C91B1193834F900297189 /* RemovableCell.xib */,
+				EF39E961194ADC56006D8077 /* checkListCell.h */,
+				EF39E962194ADC56006D8077 /* checkListCell.m */,
+				EF39E963194ADC56006D8077 /* checkListCell.xib */,
 				EF596B33192621A400B85A6F /* Images.xcassets */,
 				EFFC978719453F140034BE53 /* launch-01.png */,
 				EFFC978919453F3B0034BE53 /* launch-02.png */,
@@ -283,6 +295,8 @@
 		EFB8FB8D194436ED00BBCFD0 /* 40icons */ = {
 			isa = PBXGroup;
 			children = (
+				EF257925195039DB00404833 /* check-09.png */,
+				EF257926195039DB00404833 /* check-10.png */,
 				EF063A631948060F007E8475 /* resizedMenu-09.png */,
 				EFFC97831944E3F60034BE53 /* pencil-14-14.png */,
 				EFFC978D194544020034BE53 /* protDesign-08.png */,
@@ -387,13 +401,16 @@
 				EF869243193E2CC0000363D6 /* 52-53.png in Resources */,
 				EF8C91B3193834F900297189 /* RemovableCell.xib in Resources */,
 				EFFC977E1944D37B0034BE53 /* 50-02.png in Resources */,
+				EF257928195039DB00404833 /* check-10.png in Resources */,
 				EF86920C193D6E62000363D6 /* css.css in Resources */,
 				EFFC978C194541C20034BE53 /* protDesign-07.png in Resources */,
 				EFFC978A19453F3B0034BE53 /* launch-02.png in Resources */,
 				EFFC978E194544020034BE53 /* protDesign-08.png in Resources */,
 				EF063A641948060F007E8475 /* resizedMenu-09.png in Resources */,
+				EF257927195039DB00404833 /* check-09.png in Resources */,
 				EFB8FB711943F7C800BBCFD0 /* 30menu-02.png in Resources */,
 				EF596B26192621A400B85A6F /* InfoPlist.strings in Resources */,
+				EF39E965194ADC56006D8077 /* checkListCell.xib in Resources */,
 				EF13E8A3193C601200CF58D7 /* cirX-01.png in Resources */,
 				EF869244193E2CC0000363D6 /* 52line.png in Resources */,
 				EF869245193E2CC0000363D6 /* 298line.png in Resources */,
@@ -462,6 +479,7 @@
 				EFCDA6771935728E00E9AA38 /* initialViewController.m in Sources */,
 				EFCDA6611934708D00E9AA38 /* AddNewCategoryCell.m in Sources */,
 				EF5977A21926264600FDAD33 /* LeftViewController.m in Sources */,
+				EF39E964194ADC56006D8077 /* checkListCell.m in Sources */,
 				EF596B2C192621A400B85A6F /* AppDelegate.m in Sources */,
 				EF596B28192621A400B85A6F /* main.m in Sources */,
 				EF8C91B2193834F900297189 /* RemovableCell.m in Sources */,

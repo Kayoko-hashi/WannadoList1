@@ -11,6 +11,7 @@
 #import "AppDelegate.h"
 #import "initialViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "checkListCell.h"
 
 
 @interface ViewController ()
@@ -81,6 +82,10 @@
     //plistのディレクトリを指定し、その配下から特定のplistをさらに指定する。
     [self SelctPlist];
     [self SelctCategoryPlist];
+    
+    //テーブルビューにカスタムセルを返すためのやつ
+    UINib *nib = [UINib nibWithNibName:@"checkListCell" bundle:nil];
+    [self.myList registerNib:nib forCellReuseIdentifier:@"checkListCell"];
     
 }
 
@@ -490,7 +495,7 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    static NSString *CellIdentifier = @"CellIdentifier";
+ /*   static NSString *CellIdentifier = @"CellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
     
@@ -499,6 +504,17 @@
                 cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
                         }
+  
+  */
+    
+     checkListCell *checklistCell  = [tableView dequeueReusableCellWithIdentifier:@"checkListCell"
+                                                                   forIndexPath:indexPath];
+
+    
+    //カスタムセルに行数を覚えさせる
+    checklistCell.indicateRow = indexPath.row;
+
+
     
     //配列の中の子ディクショナリにフィルターのかかった配列の中身を代入
     _listcontent = FilteredArray[indexPath.row];
@@ -510,7 +526,7 @@
         NSDictionary *listContents = _myArray[indexPath.row];
         
         //取り出した子ディクショナリの中からKeyがTODOの要素をセルに返す
-        cell.textLabel.text = [NSString stringWithFormat:@"%@",[listContents objectForKey:@"TODO"]];
+        checklistCell.todoTextLabel.text = [NSString stringWithFormat:@"%@",[listContents objectForKey:@"TODO"]];
         
             }else{
     
@@ -519,19 +535,19 @@
         
                     if ( flag ) {
                         if(indexPath.row == 0){
-                            cell = nil;
-                            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                            //checklistCell = nil;
+                            //checklistCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
                                                 }
 
-            cell.textLabel.text = [NSString stringWithFormat:@"%@",[_listcontent objectForKey:@"TODO"]];
+            checklistCell.todoTextLabel.text = [NSString stringWithFormat:@"%@",[_listcontent objectForKey:@"TODO"]];
             
             NSLog(@"FilteredArray=%@",FilteredArray);
     
                                 }
                     }
-     cell.textLabel.textColor = [UIColor darkGrayColor];
-     cell.textLabel.font = [UIFont fontWithName:@"Hiragino Kaku Gothic Pro" size:16];
-    return cell;
+     checklistCell.todoTextLabel.textColor = [UIColor darkGrayColor];
+     checklistCell.todoTextLabel.font = [UIFont fontWithName:@"Hiragino Kaku Gothic Pro" size:16];
+    return checklistCell;
     
 }
 

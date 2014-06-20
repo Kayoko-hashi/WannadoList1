@@ -299,30 +299,21 @@
 }
 
 
--(void)DurationOfLifeArray{
-
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    int age;
-    age = [defaults integerForKey:@"age"];
-    int copyAge;
-    copyAge = age;
+-(void)DurationOfLifeArray{ 
     
     
     targetAge = [[NSMutableArray alloc]init];
     
     
-    for ( int i = 0; i<100-copyAge; i++) {
+    for ( int i = 0; i<100; i++) {
         
-        [targetAge addObject:[NSString stringWithFormat:@"%d",age+i]];
+        [targetAge addObject:[NSString stringWithFormat:@"%d",i]];
         
     }
     
     [targetAge insertObject:@"未定" atIndex:0];
 
 }
-
-
 
 
 
