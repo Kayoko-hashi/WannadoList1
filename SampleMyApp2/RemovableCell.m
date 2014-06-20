@@ -40,8 +40,8 @@
     //指定されたディレクトリ配下から指定のplist
     wannadoFilepath = [documentsDirectory stringByAppendingPathComponent:@"wannadoList2.plist"];
 
-    
 }
+
 - (IBAction)deleteTap:(id)sender {
     
     [self replaceToNonCategory];

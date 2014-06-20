@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface checkListCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *checkImg;
 @property (nonatomic) NSInteger indicateRow;
 @property (weak, nonatomic) IBOutlet UILabel *todoTextLabel;
+@property (weak, nonatomic) IBOutlet UIButton *checkBtn;
+- (IBAction)checkBtnTap:(id)sender;
 
 @end

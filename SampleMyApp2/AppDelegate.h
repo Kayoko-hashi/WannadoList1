@@ -11,7 +11,6 @@
 #import "LeftViewController.h"
 #import "ViewController.h"
 #import "DetailViewController.h"
-#import "initialViewController.h"
 #import "AgesViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
@@ -26,7 +25,6 @@
 @property (nonatomic) LeftViewController *leftMenuViewContoroller;
 @property (nonatomic) ViewController *tmpViewContoroller;
 @property (nonatomic) DetailViewController *detailViewContoroller;
-@property (nonatomic) initialViewController *initialViewController;
 @property (nonatomic) AgesViewController *agesViewController;
 
 //- (void)switchTabBarController:(NSInteger)selectedViewIndex;

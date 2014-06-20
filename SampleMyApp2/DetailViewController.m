@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "LeftViewController.h"
 #import "ViewController.h"
-#import "initialViewController.h"
+
 
 @interface DetailViewController (){
 
