@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "LeftViewController.h"
 #import "ViewController.h"
-#import "initialViewController.h"
+
 
 @interface DetailViewController (){
 
@@ -301,20 +301,14 @@
 
 -(void)DurationOfLifeArray{
 
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    int age;
-    age = [defaults integerForKey:@"age"];
-    int copyAge;
-    copyAge = age;
-    
+
     
     targetAge = [[NSMutableArray alloc]init];
     
     
-    for ( int i = 0; i<100-copyAge; i++) {
+    for ( int i = 0; i<100; i++) {
         
-        [targetAge addObject:[NSString stringWithFormat:@"%d",age+i]];
+        [targetAge addObject:[NSString stringWithFormat:@"%d",i]];
         
     }
     

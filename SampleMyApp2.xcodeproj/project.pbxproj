@@ -48,7 +48,6 @@
 		EFB8FB8219440CD300BBCFD0 /* 50icons-03.png in Resources */ = {isa = PBXBuildFile; fileRef = EFB8FB7519440CD300BBCFD0 /* 50icons-03.png */; };
 		EFCDA6611934708D00E9AA38 /* AddNewCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCDA65F1934708D00E9AA38 /* AddNewCategoryCell.m */; };
 		EFCDA6621934708D00E9AA38 /* AddNewCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFCDA6601934708D00E9AA38 /* AddNewCategoryCell.xib */; };
-		EFCDA6771935728E00E9AA38 /* initialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCDA6761935728E00E9AA38 /* initialViewController.m */; };
 		EFFC977C1944D1630034BE53 /* plus_03.png in Resources */ = {isa = PBXBuildFile; fileRef = EFFC977B1944D1630034BE53 /* plus_03.png */; };
 		EFFC977E1944D37B0034BE53 /* 50-02.png in Resources */ = {isa = PBXBuildFile; fileRef = EFFC977D1944D37B0034BE53 /* 50-02.png */; };
 		EFFC97841944E3F60034BE53 /* pencil-14-14.png in Resources */ = {isa = PBXBuildFile; fileRef = EFFC97831944E3F60034BE53 /* pencil-14-14.png */; };
@@ -120,8 +119,6 @@
 		EFCDA65E1934708D00E9AA38 /* AddNewCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewCategoryCell.h; sourceTree = "<group>"; };
 		EFCDA65F1934708D00E9AA38 /* AddNewCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewCategoryCell.m; sourceTree = "<group>"; };
 		EFCDA6601934708D00E9AA38 /* AddNewCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNewCategoryCell.xib; sourceTree = "<group>"; };
-		EFCDA6751935728E00E9AA38 /* initialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = initialViewController.h; sourceTree = "<group>"; };
-		EFCDA6761935728E00E9AA38 /* initialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = initialViewController.m; sourceTree = "<group>"; };
 		EFFC977B1944D1630034BE53 /* plus_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_03.png; sourceTree = "<group>"; };
 		EFFC977D1944D37B0034BE53 /* 50-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "50-02.png"; sourceTree = "<group>"; };
 		EFFC97831944E3F60034BE53 /* pencil-14-14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pencil-14-14.png"; sourceTree = "<group>"; };
@@ -206,8 +203,6 @@
 				EF596B2A192621A400B85A6F /* AppDelegate.h */,
 				EF596B2B192621A400B85A6F /* AppDelegate.m */,
 				EF596B2D192621A400B85A6F /* Main.storyboard */,
-				EFCDA6751935728E00E9AA38 /* initialViewController.h */,
-				EFCDA6761935728E00E9AA38 /* initialViewController.m */,
 				EF596B30192621A400B85A6F /* ViewController.h */,
 				EF596B31192621A400B85A6F /* ViewController.m */,
 				EF5977A01926264600FDAD33 /* LeftViewController.h */,
@@ -459,7 +454,6 @@
 				EF8691F1193D67A7000363D6 /* AgesViewController.m in Sources */,
 				EF86924C193ECE09000363D6 /* jquery-1.11.1.min.js in Sources */,
 				EF596B32192621A400B85A6F /* ViewController.m in Sources */,
-				EFCDA6771935728E00E9AA38 /* initialViewController.m in Sources */,
 				EFCDA6611934708D00E9AA38 /* AddNewCategoryCell.m in Sources */,
 				EF5977A21926264600FDAD33 /* LeftViewController.m in Sources */,
 				EF596B2C192621A400B85A6F /* AppDelegate.m in Sources */,

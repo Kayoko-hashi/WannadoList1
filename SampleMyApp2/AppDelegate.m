@@ -34,7 +34,6 @@
     _tmpViewContoroller = [mainStoryBoard instantiateViewControllerWithIdentifier:@"MainView"];
     _leftMenuViewContoroller = [mainStoryBoard instantiateViewControllerWithIdentifier:@"LeftViewController"];
     _detailViewContoroller = [mainStoryBoard instantiateViewControllerWithIdentifier:@"Detail"];
-    _initialViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"initView"];
     _agesViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"Ages"];
    
    UITabBarController *tabBarContoroller =  [mainStoryBoard instantiateViewControllerWithIdentifier:@"TabBarController"];

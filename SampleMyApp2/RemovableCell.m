@@ -14,7 +14,7 @@
 @implementation RemovableCell{
 
     NSString *wannadoFilepath;
-
+    AppDelegate *appdelegate;
 }
 
 - (void)awakeFromNib
@@ -42,6 +42,15 @@
 
     
 }
+
+-(AppDelegate *)appdelegatemethod{
+
+    //アップデリゲートをインスタンス化
+    appdelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+
+    return appdelegate;
+}
+
 - (IBAction)deleteTap:(id)sender {
     
     [self replaceToNonCategory];
@@ -49,6 +58,8 @@
     [self deleteCellFromTableAndArray];
     
     //該当セルにカテゴライズされていた項目を"無分類"に書き換える
+    
+    [self didselecetrowatIndexpath];
 
 }
 
@@ -100,12 +111,32 @@
     
 }
 
+-(void)didselecetrowatIndexpath{
+    
+    [self appdelegatemethod];
+    
+    //LeftTableの何行目が押されて、その行に何が入っているのか判断する。
+    
+    
+    NSString *CategoryName;
+    CategoryName = [appdelegate.leftMenuViewContoroller.CategoryArray objectAtIndex:[appdelegate.leftMenuViewContoroller.LeftTable indexPathForSelectedRow].row];
+    
+    //↑をViewContorollerに保存しておく。
+    appdelegate.tmpViewContoroller.CategoryNamefromLeft = CategoryName;
+    
+    
+    //MainViewのテーブルビューを再読み込み。
+    [appdelegate.tmpViewContoroller.myList reloadData];
+    
+    
+    
+}
+
 
 
 -(void)deleteCellFromTableAndArray{
     
-    //アップデリゲートをインスタンス化
-    AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [self appdelegatemethod];
     
     [appdelegate.leftMenuViewContoroller.CategoryArray removeObjectAtIndex:self.indicateRow];
     NSLog(@"%d",self.indicateRow);

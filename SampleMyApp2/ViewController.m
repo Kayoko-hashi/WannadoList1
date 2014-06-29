@@ -9,7 +9,6 @@
 #import "ViewController.h"
 #import "DetailViewController.h"
 #import "AppDelegate.h"
-#import "initialViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 
@@ -241,24 +240,7 @@
     //wannadoPlistから_myArrayに読み込む
     self.myArray = [NSMutableArray arrayWithContentsOfFile:_wannadoFilepath];
 
-    NSUserDefaults *countLaunch = [NSUserDefaults standardUserDefaults];
-    BOOL LaunchFlag;
-    
-        LaunchFlag = [countLaunch boolForKey:@"first"];
-        
-      if ( LaunchFlag == NO ){
-    
-            //画面遷移のコード書く。
-            //AppDelegate *app = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-            initialViewController *initView = [self.storyboard instantiateViewControllerWithIdentifier:@"initView"];
-            
-            [self presentViewController:initView animated:NO completion:nil];
-            
-            [countLaunch setBool:YES forKey:@"first"];
-            
-    }
- 
-    [self.myList reloadData];
+     [self.myList reloadData];
     
 }
 

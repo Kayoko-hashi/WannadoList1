@@ -21,7 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
 - (void)setupMenuBarButtonItems;
-@property (nonatomic) BOOL launchFlag;
+
 
 
 
