@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface checkCell : UITableViewCell
+@property (nonatomic) int indicateRow;
+@property (weak, nonatomic) IBOutlet UIButton *checkBtn;
+- (IBAction)checkBtnTap:(id)sender event:(id)event;
+
 
 @end

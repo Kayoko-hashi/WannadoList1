@@ -50,6 +50,8 @@
 		EFCDA6621934708D00E9AA38 /* AddNewCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFCDA6601934708D00E9AA38 /* AddNewCategoryCell.xib */; };
 		EFDB3CE31960076600D70661 /* checkCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDB3CE11960076600D70661 /* checkCell.m */; };
 		EFDB3CE41960076600D70661 /* checkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFDB3CE21960076600D70661 /* checkCell.xib */; };
+		EFDB3CE719600C2300D70661 /* check-09.png in Resources */ = {isa = PBXBuildFile; fileRef = EFDB3CE519600C2300D70661 /* check-09.png */; };
+		EFDB3CE819600C2300D70661 /* check-10.png in Resources */ = {isa = PBXBuildFile; fileRef = EFDB3CE619600C2300D70661 /* check-10.png */; };
 		EFFC977C1944D1630034BE53 /* plus_03.png in Resources */ = {isa = PBXBuildFile; fileRef = EFFC977B1944D1630034BE53 /* plus_03.png */; };
 		EFFC977E1944D37B0034BE53 /* 50-02.png in Resources */ = {isa = PBXBuildFile; fileRef = EFFC977D1944D37B0034BE53 /* 50-02.png */; };
 		EFFC97841944E3F60034BE53 /* pencil-14-14.png in Resources */ = {isa = PBXBuildFile; fileRef = EFFC97831944E3F60034BE53 /* pencil-14-14.png */; };
@@ -124,6 +126,8 @@
 		EFDB3CE01960076600D70661 /* checkCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = checkCell.h; sourceTree = "<group>"; };
 		EFDB3CE11960076600D70661 /* checkCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = checkCell.m; sourceTree = "<group>"; };
 		EFDB3CE21960076600D70661 /* checkCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = checkCell.xib; sourceTree = "<group>"; };
+		EFDB3CE519600C2300D70661 /* check-09.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check-09.png"; path = "../check-09.png"; sourceTree = "<group>"; };
+		EFDB3CE619600C2300D70661 /* check-10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check-10.png"; path = "../check-10.png"; sourceTree = "<group>"; };
 		EFFC977B1944D1630034BE53 /* plus_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_03.png; sourceTree = "<group>"; };
 		EFFC977D1944D37B0034BE53 /* 50-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "50-02.png"; sourceTree = "<group>"; };
 		EFFC97831944E3F60034BE53 /* pencil-14-14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pencil-14-14.png"; sourceTree = "<group>"; };
@@ -286,6 +290,8 @@
 		EFB8FB8D194436ED00BBCFD0 /* 40icons */ = {
 			isa = PBXGroup;
 			children = (
+				EFDB3CE519600C2300D70661 /* check-09.png */,
+				EFDB3CE619600C2300D70661 /* check-10.png */,
 				EF063A631948060F007E8475 /* resizedMenu-09.png */,
 				EFFC97831944E3F60034BE53 /* pencil-14-14.png */,
 				EFFC978D194544020034BE53 /* protDesign-08.png */,
@@ -390,11 +396,13 @@
 				EF869243193E2CC0000363D6 /* 52-53.png in Resources */,
 				EF8C91B3193834F900297189 /* RemovableCell.xib in Resources */,
 				EFFC977E1944D37B0034BE53 /* 50-02.png in Resources */,
+				EFDB3CE819600C2300D70661 /* check-10.png in Resources */,
 				EF86920C193D6E62000363D6 /* css.css in Resources */,
 				EFFC978C194541C20034BE53 /* protDesign-07.png in Resources */,
 				EFFC978A19453F3B0034BE53 /* launch-02.png in Resources */,
 				EFFC978E194544020034BE53 /* protDesign-08.png in Resources */,
 				EF063A641948060F007E8475 /* resizedMenu-09.png in Resources */,
+				EFDB3CE719600C2300D70661 /* check-09.png in Resources */,
 				EFB8FB711943F7C800BBCFD0 /* 30menu-02.png in Resources */,
 				EF596B26192621A400B85A6F /* InfoPlist.strings in Resources */,
 				EF13E8A3193C601200CF58D7 /* cirX-01.png in Resources */,
