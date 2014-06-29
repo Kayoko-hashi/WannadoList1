@@ -10,6 +10,7 @@
 #import "DetailViewController.h"
 #import "AppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
+#import "checkCell.h"
 
 
 @interface ViewController ()
@@ -50,7 +51,16 @@
 
 }
 
-
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    //wannadoPlistから_myArrayに読み込む
+    self.myArray = [NSMutableArray arrayWithContentsOfFile:_wannadoFilepath];
+    
+    [self.myList reloadData];
+    
+}
 
 - (void)viewDidLoad
 {
@@ -81,10 +91,18 @@
     [self SelctPlist];
     [self SelctCategoryPlist];
     
+    //テーブルビューにカスタムセルを返すためのやつ
+    UINib *nib = [UINib nibWithNibName:@"checkCell" bundle:nil];
+    [self.myList registerNib:nib forCellReuseIdentifier:@"checkCell"];
+
+    
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma SetUpNavigationBar
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 - (void)setupMenuBarButtonItems {
     
@@ -117,7 +135,12 @@
 }
 
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #pragma StyleOfEachObject
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 -(void)StyleOfTabBar{
     
@@ -161,8 +184,6 @@
 }
 
 
-
-
 -(void)StyleOfTextField{
     
 
@@ -173,7 +194,7 @@
     self.myTextField.delegate = self;
     self.addBtn.tintColor = [UIColor colorWithRed:0.60 green:0.740 blue:0.639 alpha:1.0];
     
-//    // 角の丸め
+    // 角の丸め
     self.myTextField.layer.cornerRadius = 10.0f;
 
 
@@ -206,11 +227,12 @@
 }
 
 
-
-
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma Pilst
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 -(void)SelctPlist{
     
@@ -229,23 +251,12 @@
 }
 
 
-#pragma ViewWillAppear
-
-
-
-- (void)viewWillAppear:(BOOL)animated{
-    
-    [super viewWillAppear:animated];
-    
-    //wannadoPlistから_myArrayに読み込む
-    self.myArray = [NSMutableArray arrayWithContentsOfFile:_wannadoFilepath];
-
-     [self.myList reloadData];
-    
-}
-
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma TextField
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 //テキストフィールドEnterされた時のメソッド
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
@@ -311,8 +322,12 @@
     
   }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 #pragma TapedButton
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 - (IBAction)AddBtnTap:(id)sender {
     
@@ -414,7 +429,12 @@
     
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 #pragma TableView
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 -(void)TableviewSetUp{
 
@@ -423,8 +443,6 @@
     self.myList.dataSource = self;
     self.myList.delegate = self;
     
-//    //一番下までスクロールできるようにする
-//    self.edgesForExtendedLayout = UIRectEdgeAll;
     //セルの複数選択を許可しない
     self.myList.allowsMultipleSelectionDuringEditing = NO;
 
@@ -471,7 +489,7 @@
 
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+ /*
     static NSString *CellIdentifier = @"CellIdentifier";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -481,6 +499,13 @@
                 cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
                         }
+  */
+    
+    checkCell *checkCell  = [tableView dequeueReusableCellWithIdentifier:@"checkCell"
+                                                                    forIndexPath:indexPath];
+    
+    //カスタムセルに行数を覚えさせる
+    checkCell.indicatedRow = indexPath.row;
     
     //配列の中の子ディクショナリにフィルターのかかった配列の中身を代入
     _listcontent = FilteredArray[indexPath.row];
@@ -492,7 +517,7 @@
         NSDictionary *listContents = _myArray[indexPath.row];
         
         //取り出した子ディクショナリの中からKeyがTODOの要素をセルに返す
-        cell.textLabel.text = [NSString stringWithFormat:@"%@",[listContents objectForKey:@"TODO"]];
+        checkCell.todoLabel.text = [NSString stringWithFormat:@"%@",[listContents objectForKey:@"TODO"]];
         
             }else{
     
@@ -500,20 +525,16 @@
                 flag = [self.CategoryNamefromLeft isEqualToString:_CategoryNamefromLeft];
         
                     if ( flag ) {
-                        if(indexPath.row == 0){
-                            cell = nil;
-                            cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                                                }
 
-            cell.textLabel.text = [NSString stringWithFormat:@"%@",[_listcontent objectForKey:@"TODO"]];
+            checkCell.todoLabel.text = [NSString stringWithFormat:@"%@",[_listcontent objectForKey:@"TODO"]];
             
             NSLog(@"FilteredArray=%@",FilteredArray);
     
                                 }
                     }
-     cell.textLabel.textColor = [UIColor darkGrayColor];
-     cell.textLabel.font = [UIFont fontWithName:@"Hiragino Kaku Gothic Pro" size:16];
-    return cell;
+     checkCell.todoLabel.textColor = [UIColor darkGrayColor];
+     checkCell.todoLabel.font = [UIFont fontWithName:@"Hiragino Kaku Gothic Pro" size:16];
+    return checkCell;
     
 }
 
@@ -603,6 +624,27 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 
+//編集モードかどうか判断するメソッド
+- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
+    [super setEditing:editing animated:animated];
+    [_myList setEditing:editing animated:animated];
+    
+    if (editing) { // 現在編集モードです。;
+        self.navigationItem.leftBarButtonItem.enabled = NO; //セルの編集中ナビバーの左ボタン無効
+        self.myTextField.enabled = NO;
+        
+    } else { // 現在通常モードです。
+        self.navigationItem.leftBarButtonItem.enabled = YES; //通常モードで有効
+        self.myTextField.enabled = YES;
+    }
+    
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 -(void)FilteredArrayMethod{
     
@@ -626,21 +668,6 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 
-//編集モードかどうか判断するメソッド
-- (void)setEditing:(BOOL)editing animated:(BOOL)animated {
-    [super setEditing:editing animated:animated];
-    [_myList setEditing:editing animated:animated];
-    
-    if (editing) { // 現在編集モードです。;
-        self.navigationItem.leftBarButtonItem.enabled = NO; //セルの編集中ナビバーの左ボタン無効
-        self.myTextField.enabled = NO;
-        
-    } else { // 現在通常モードです。
-        self.navigationItem.leftBarButtonItem.enabled = YES; //通常モードで有効
-        self.myTextField.enabled = YES;
-    }
-    
-}
 
 
 - (void)didReceiveMemoryWarning

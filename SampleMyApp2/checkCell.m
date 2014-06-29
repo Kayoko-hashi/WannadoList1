@@ -71,22 +71,21 @@
     for(NSMutableDictionary* temp in getArray ){
         
         
+        if (self.checkBtn.tag == 1) {
+            
+            [temp setObject:[NSNumber numberWithBool:YES] forKey:@"Complete_flag"];
+            [getArrayCopy setObject:temp atIndexedSubscript:count];
+
+            
+            
+        }else{
+            
+            [getArrayCopy setObject:temp atIndexedSubscript:count];
+            [temp setObject:[NSNumber numberWithBool:NO] forKey:@"Complete_flag"];
+            
+        }
         
-//        if (self.checkBtn.tag == 1) {
-//            
-//            [temp setObject:[NSNumber numberWithBool:YES] forKey:@"Complete_flag"];
-//            [getArrayCopy setObject:temp atIndexedSubscript:count];
-//
-//            
-//            
-//        }else{
-//            
-//            [getArrayCopy setObject:temp atIndexedSubscript:count];
-//            [temp setObject:[NSNumber numberWithBool:NO] forKey:@"Complete_flag"];
-//            
-//        }
-//        
-//        count++;
+        count++;
         
     }
     
@@ -113,7 +112,7 @@
     CGPoint touchPosition = [touch locationInView:app.tmpViewContoroller.myList];
     NSIndexPath *indexPath = [app.tmpViewContoroller.myList indexPathForRowAtPoint: touchPosition];
     NSLog(@"%@",indexPath);
-    self.indicateRow = indexPath.row;
+    self.indicatedRow = indexPath.row;
     
     
     

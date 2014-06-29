@@ -189,7 +189,7 @@
     if ( indexPath.section == 1) {
         
     
-        if (indexPath.row <= 2) {
+        if (indexPath.row <= 3) {
             
             static NSString *CellIdentifer = @"Cell";
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifer];

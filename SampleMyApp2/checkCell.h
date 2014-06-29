@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface checkCell : UITableViewCell
-@property (nonatomic) int indicateRow;
+@property (nonatomic) int indicatedRow; //ボタンが押されたときの行数
 @property (weak, nonatomic) IBOutlet UIButton *checkBtn;
+@property (weak, nonatomic) IBOutlet UILabel *todoLabel;
 - (IBAction)checkBtnTap:(id)sender event:(id)event;
 
 
