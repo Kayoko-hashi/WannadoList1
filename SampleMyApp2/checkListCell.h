@@ -12,6 +12,6 @@
 @property (nonatomic) NSInteger indicateRow;
 @property (weak, nonatomic) IBOutlet UILabel *todoTextLabel;
 @property (weak, nonatomic) IBOutlet UIButton *checkBtn;
-- (IBAction)checkBtnTap:(id)sender;
+- (IBAction)checkBtnTap:(id)sender event:(id)event;
 
 @end

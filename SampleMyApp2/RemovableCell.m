@@ -14,6 +14,7 @@
 @implementation RemovableCell{
 
     NSString *wannadoFilepath;
+    NSString *_categoryFilepath;
 
 }
 
@@ -42,6 +43,9 @@
 
 }
 
+
+
+
 - (IBAction)deleteTap:(id)sender {
     
     [self replaceToNonCategory];
@@ -49,6 +53,9 @@
     [self deleteCellFromTableAndArray];
     
     //該当セルにカテゴライズされていた項目を"無分類"に書き換える
+    
+    //セルを選択したことにする
+    [self didselecetrowatIndexpath];
 
 }
 
@@ -93,6 +100,8 @@
     }
 
     [getArrayCopy writeToFile:wannadoFilepath atomically:YES];
+//    [self SelectWannadoPlist];
+    app.tmpViewContoroller.FilteredArray = [NSMutableArray arrayWithContentsOfFile:wannadoFilepath];
     [app.leftMenuViewContoroller.LeftTable reloadData];
     [app.detailViewContoroller.DetailTable reloadData];
     [app.tmpViewContoroller.myList reloadData];
@@ -100,7 +109,29 @@
     
 }
 
+-(void)didselecetrowatIndexpath{
+    
+    //アップデリゲートをインスタンス化
+    AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
+    //LeftTableの何行目が押されて、その行に何が入っているのか判断する。
 
+    
+    
+    NSString *CategoryName;
+    CategoryName = [appdelegate.leftMenuViewContoroller.CategoryArray objectAtIndex:[appdelegate.leftMenuViewContoroller.LeftTable indexPathForSelectedRow].row];
+    
+    //↑をViewContorollerに保存しておく。
+    appdelegate.tmpViewContoroller.CategoryNamefromLeft = CategoryName;
+    
+
+    //MainViewのテーブルビューを再読み込み。
+    [appdelegate.tmpViewContoroller.myList reloadData];
+
+
+
+
+}
 
 -(void)deleteCellFromTableAndArray{
     
@@ -108,7 +139,7 @@
     AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     
     [appdelegate.leftMenuViewContoroller.CategoryArray removeObjectAtIndex:self.indicateRow];
-    NSLog(@"%d",self.indicateRow);
+    NSLog(@"%ld",(long)self.indicateRow);
     
     //plistのディレクトリを指定
     
@@ -117,6 +148,7 @@
     
     
     [appdelegate.leftMenuViewContoroller.CategoryArray writeToFile:Filepath atomically:YES];
+    appdelegate.leftMenuViewContoroller.CategoryArray = [NSMutableArray arrayWithContentsOfFile:Filepath];
     
     [appdelegate.leftMenuViewContoroller.LeftTable reloadData];
     

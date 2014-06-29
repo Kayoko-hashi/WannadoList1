@@ -18,6 +18,8 @@
 @property (assign, nonatomic) NSString *CategoryNamefromLeft;
 @property (strong, nonatomic)     NSMutableArray *myArray;
 @property (assign, nonatomic) NSInteger categoryInt;
+@property (nonatomic)NSMutableArray *FilteredArray;
+@property (nonatomic)NSMutableArray *checkedArray;
 
 @property (weak, nonatomic) IBOutlet UIButton *addBtn;
 - (void)setupMenuBarButtonItems;

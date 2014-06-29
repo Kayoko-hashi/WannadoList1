@@ -19,7 +19,7 @@
 @implementation LeftViewController{
     
     NSString *_CategoryFilepath;
-    NSString *_WannadoFilepath;
+    NSString *_WannadoFilepath; 
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -42,12 +42,11 @@
     //テーブルビューのためのあれ
     [self setUpTableView];
     
-    //カテゴリーリストの読み込み 書き込むまえにやるの！！！
-    [self SelctCategoryPlist];
-    _CategoryArray = [NSMutableArray arrayWithContentsOfFile:_CategoryFilepath];
-    
     //カテゴリーリストの配列を定義
     [self setUpCategoryList];
+    
+    //カテゴリーリストの読み込み
+    [self loadCategoryList];
    
     //カスタムセルを使うためのnib登録
     [self setUpNibForCustomCell];
@@ -106,16 +105,25 @@
         
         _CategoryArray = [[NSMutableArray alloc]init];
         [_CategoryArray addObject:@"すべて"];
+        [_CategoryArray addObject:@"完了済み"];
         [_CategoryArray addObject:@"無分類"];
         [_CategoryArray addObject:@"ライフイベント"];
+
+
         
         //カテゴリー用のplistのディレクトリを指定し、カテゴリーリストの配列を書き込む
         [self SelctCategoryPlist];
         [_CategoryArray writeToFile:_CategoryFilepath atomically:YES];
 
     }
-    
-    
+
+}
+
+-(void)loadCategoryList{
+
+    //カテゴリーリストの読み込み 書き込むまえにやるの！！！
+    [self SelctCategoryPlist];
+    _CategoryArray = [NSMutableArray arrayWithContentsOfFile:_CategoryFilepath];
 
 }
 
@@ -151,12 +159,12 @@
     
     if ( section == 0){
     
-        sectionLabel.text = @"  新規カテゴリーを追加";
+        sectionLabel.text = @"  新規リストを追加";
         return sectionView;
         
         }else{
     
-        sectionLabel.text = @"  カテゴリー";
+        sectionLabel.text = @"  リスト";
             return sectionView;
             
     }
@@ -189,7 +197,7 @@
     if ( indexPath.section == 1) {
         
     
-        if (indexPath.row <= 2) {
+        if (indexPath.row <= 3) {
             
             static NSString *CellIdentifer = @"Cell";
             UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifer];
@@ -252,13 +260,15 @@
     
     //↑をViewContorollerに保存しておく。
     appdelegate.tmpViewContoroller.CategoryNamefromLeft = CategoryName;
+    
+    
+    //MainViewのテーブルビューを再読み込み。
+    [appdelegate.tmpViewContoroller.myList reloadData];
 
     //ライブラリの機能で画面遷移。
     [self.menuContainerViewController toggleLeftSideMenuCompletion:^{
         }];
     
-    //MainViewのテーブルビューを再読み込み。
-    [appdelegate.tmpViewContoroller.myList reloadData];
 
 }
 

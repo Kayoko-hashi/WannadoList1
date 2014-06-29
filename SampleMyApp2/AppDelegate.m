@@ -35,6 +35,8 @@
     _leftMenuViewContoroller = [mainStoryBoard instantiateViewControllerWithIdentifier:@"LeftViewController"];
     _detailViewContoroller = [mainStoryBoard instantiateViewControllerWithIdentifier:@"Detail"];
     _agesViewController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"Ages"];
+    //_checkListCell = [mainStoryBoard instantiateViewControllerWithIdentifier:@"CheckCell"];
+    
    
    UITabBarController *tabBarContoroller =  [mainStoryBoard instantiateViewControllerWithIdentifier:@"TabBarController"];
     //UINavigationController *navigationController = [mainStoryBoard instantiateViewControllerWithIdentifier:@"Navi"];

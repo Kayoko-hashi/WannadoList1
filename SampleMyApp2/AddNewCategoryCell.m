@@ -125,52 +125,6 @@
     
 }
 
-/*
-
--(void)CreateBtn{
-    
-    UIButton *tapMeBtn;
-//⇩ボタン画像を表示⇩
-tapMeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-
-//ボタンの位置とサイズを指定
-tapMeBtn.frame = CGRectMake(234, 22, 30, 30);
-
-//画像を指定
-[tapMeBtn setImage:[UIImage imageNamed:@"icons-02.png"] forState:UIControlStateNormal];
-
-//タップ時にコールされるメソッドを指定
-[tapMeBtn addTarget:self action:@selector(button_TOP_action) forControlEvents:UIControlEventTouchUpInside];
-
-//ビューに追加
-[self.textLabel addSubview:tapMeBtn];
-
-}
-
-
-//画像タップ時にコールされるメソッド- (void)tapMe {
-- (void)button_TOP_action {
-    
-    NSString *text = self.AddNCTextField.text;
-    
-    //アップデリゲートをインスタンス化
-    AppDelegate *appdelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-    
-    //leftViewのカテゴリー配列に入力された文字列を要素として追加
-    [appdelegate.leftMenuViewContoroller.CategoryArray addObject:text];
-    
-    //plistのディレクトリを指定
-    [self SelctCategoryPlist];
-    
-    //カテゴリplistへ書き込み
-    [appdelegate.leftMenuViewContoroller.CategoryArray writeToFile:_CategoryFilePath atomically:YES];
-    
-    //leftTableの再読み込み
-    [appdelegate.leftMenuViewContoroller.LeftTable reloadData];
-
-}
- 
- */
 
 - (IBAction)TFReturn:(id)sender {
     

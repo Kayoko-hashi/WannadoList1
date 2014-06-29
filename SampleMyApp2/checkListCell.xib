@@ -20,14 +20,14 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6f-Ql-9xQ">
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B6f-Ql-9xQ" customClass="CustomBtn">
                         <rect key="frame" x="5" y="9" width="26" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" image="check-09.png">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <connections>
-                            <action selector="checkBtnTap:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="PpB-0z-Bu7"/>
+                            <action selector="checkBtnTap:event:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="f2f-cL-te5"/>
                         </connections>
                     </button>
                 </subviews>

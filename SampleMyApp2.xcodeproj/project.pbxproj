@@ -52,6 +52,7 @@
 		EFB8FB8219440CD300BBCFD0 /* 50icons-03.png in Resources */ = {isa = PBXBuildFile; fileRef = EFB8FB7519440CD300BBCFD0 /* 50icons-03.png */; };
 		EFCDA6611934708D00E9AA38 /* AddNewCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EFCDA65F1934708D00E9AA38 /* AddNewCategoryCell.m */; };
 		EFCDA6621934708D00E9AA38 /* AddNewCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFCDA6601934708D00E9AA38 /* AddNewCategoryCell.xib */; };
+		EFE2214C1957C3DD00F16C3A /* CustomBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = EFE2214B1957C3DD00F16C3A /* CustomBtn.m */; };
 		EFFC977C1944D1630034BE53 /* plus_03.png in Resources */ = {isa = PBXBuildFile; fileRef = EFFC977B1944D1630034BE53 /* plus_03.png */; };
 		EFFC977E1944D37B0034BE53 /* 50-02.png in Resources */ = {isa = PBXBuildFile; fileRef = EFFC977D1944D37B0034BE53 /* 50-02.png */; };
 		EFFC97841944E3F60034BE53 /* pencil-14-14.png in Resources */ = {isa = PBXBuildFile; fileRef = EFFC97831944E3F60034BE53 /* pencil-14-14.png */; };
@@ -128,6 +129,8 @@
 		EFCDA65E1934708D00E9AA38 /* AddNewCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewCategoryCell.h; sourceTree = "<group>"; };
 		EFCDA65F1934708D00E9AA38 /* AddNewCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewCategoryCell.m; sourceTree = "<group>"; };
 		EFCDA6601934708D00E9AA38 /* AddNewCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AddNewCategoryCell.xib; sourceTree = "<group>"; };
+		EFE2214A1957C3DD00F16C3A /* CustomBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomBtn.h; sourceTree = "<group>"; };
+		EFE2214B1957C3DD00F16C3A /* CustomBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomBtn.m; sourceTree = "<group>"; };
 		EFFC977B1944D1630034BE53 /* plus_03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plus_03.png; sourceTree = "<group>"; };
 		EFFC977D1944D37B0034BE53 /* 50-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "50-02.png"; sourceTree = "<group>"; };
 		EFFC97831944E3F60034BE53 /* pencil-14-14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pencil-14-14.png"; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 				EF39E961194ADC56006D8077 /* checkListCell.h */,
 				EF39E962194ADC56006D8077 /* checkListCell.m */,
 				EF39E963194ADC56006D8077 /* checkListCell.xib */,
+				EFE2214A1957C3DD00F16C3A /* CustomBtn.h */,
+				EFE2214B1957C3DD00F16C3A /* CustomBtn.m */,
 				EF596B33192621A400B85A6F /* Images.xcassets */,
 				EFFC978719453F140034BE53 /* launch-01.png */,
 				EFFC978919453F3B0034BE53 /* launch-02.png */,
@@ -467,6 +472,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF86924A193EBF83000363D6 /* acc.js in Sources */,
+				EFE2214C1957C3DD00F16C3A /* CustomBtn.m in Sources */,
 				EF8EA2911926617B0064859D /* DetailViewController.m in Sources */,
 				EF8691F1193D67A7000363D6 /* AgesViewController.m in Sources */,
 				EF86924C193ECE09000363D6 /* jquery-1.11.1.min.js in Sources */,

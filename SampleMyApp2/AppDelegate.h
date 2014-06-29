@@ -12,6 +12,7 @@
 #import "ViewController.h"
 #import "DetailViewController.h"
 #import "AgesViewController.h"
+#import "checkListCell.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>{
 
@@ -26,7 +27,7 @@
 @property (nonatomic) ViewController *tmpViewContoroller;
 @property (nonatomic) DetailViewController *detailViewContoroller;
 @property (nonatomic) AgesViewController *agesViewController;
-
+@property (nonatomic) checkListCell *checkListCell;
 //- (void)switchTabBarController:(NSInteger)selectedViewIndex;
 
 

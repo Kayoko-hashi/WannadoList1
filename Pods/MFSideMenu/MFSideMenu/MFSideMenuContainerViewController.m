@@ -287,6 +287,9 @@ typedef enum {
     } else {
         [self setMenuState:MFSideMenuStateLeftMenuOpen completion:completion];
     }
+    
+    
+    
 }
 
 - (void)toggleRightSideMenuCompletion:(void (^)(void))completion {

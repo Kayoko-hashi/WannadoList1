@@ -22,13 +22,13 @@
 @implementation ViewController{
     
     NSDictionary *_listcontent;
+    NSDictionary *_listcontent2;
     NSString *_text;
     NSString *_wannadoFilepath;
     NSString *_categoryFilepath;
     BOOL _compFlag;
-    NSMutableArray *FilteredArray;
-    BOOL filter_flag;
-    NSString *sortKeyword;
+    
+    //BOOL filter_flag;
     NSInteger targetAge;
     
 }
@@ -51,13 +51,25 @@
 
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    
+    [super viewWillAppear:animated];
+    
+    //wannadoPlistから_myArrayに読み込む
+    self.myArray = [NSMutableArray arrayWithContentsOfFile:_wannadoFilepath];
+    
+    
+    [self.myList reloadData];
+    [self CheckedArrayMethod];
+  
+}
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    filter_flag = NO;
+    //filter_flag = NO;
     
     //テーブルビューの呪文など
     [self TableviewSetUp];
@@ -89,7 +101,8 @@
 }
 
 
-#pragma SetUpNavigationBar
+#pragma SetUpNavigationBar 
+////////////ナビゲーションバー///////////////////////////////////////////////////////////////////////////////
 
 - (void)setupMenuBarButtonItems {
     
@@ -122,6 +135,10 @@
 }
 
 
+////////////ナビゲーションバーここまで////////////////////////////////////////////////////////////////////
+
+////////////スタイル関連///////////////////////////////////////////////////////////////////////////////
+
 #pragma StyleOfEachObject
 
 -(void)StyleOfTabBar{
@@ -135,7 +152,6 @@
     self.tabBarController.tabBar.barTintColor = [UIColor colorWithRed:0.69 green:0.702 blue:0.631 alpha:1.0];
     self.tabBarController.tabBar.tintColor = [UIColor colorWithRed:0.69 green:0.702 blue:0.631 alpha:1.0];
     self.tabBarController.tabBar.barStyle = UIBarStyleBlackOpaque;
-
  
 }
 
@@ -159,13 +175,9 @@
     titleLabel.textColor = [UIColor whiteColor];
     [titleLabel sizeToFit];
     self.navigationItem.titleView = titleLabel;
-     //self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-    //[[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
     
 }
-
-
 
 
 -(void)StyleOfTextField{
@@ -178,9 +190,8 @@
     self.myTextField.delegate = self;
     self.addBtn.tintColor = [UIColor colorWithRed:0.60 green:0.740 blue:0.639 alpha:1.0];
     
-//    // 角の丸め
+    // 角の丸め
     self.myTextField.layer.cornerRadius = 10.0f;
-
 
 
 }
@@ -196,13 +207,11 @@
 
 }
 
-
     
 - (BOOL)prefersStatusBarHidden {
         //YESでステータスバーを非表示（NOなら表示）
         return YES;
     }
-
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
         //文字を白くする
@@ -210,9 +219,9 @@
     
 }
 
+////////////スタイル関連ここまで///////////////////////////////////////////////////////////////////////
 
-
-
+////////////Plist関連///////////////////////////////////////////////////////////////////////////////
 
 
 #pragma Pilst
@@ -234,22 +243,10 @@
 }
 
 
-#pragma ViewWillAppear
+////////////plist関連ここまで///////////////////////////////////////////////////////////////////////////////
 
 
-
-- (void)viewWillAppear:(BOOL)animated{
-    
-    [super viewWillAppear:animated];
-    
-    //wannadoPlistから_myArrayに読み込む
-    self.myArray = [NSMutableArray arrayWithContentsOfFile:_wannadoFilepath];
-
-     
-    [self.myList reloadData];
-    
-}
-
+////////////テキストフィールド///////////////////////////////////////////////////////////////////////////////
 
 #pragma TextField
 
@@ -317,6 +314,9 @@
     
   }
 
+////////////テキストフィールドここまで//////////////////////////////////////////////////////////////////////
+
+////////////AddBtnが押されたとき//////////////////////////////////////////////////////////////////////////
 
 #pragma TapedButton
 
@@ -379,6 +379,10 @@
 
 }
 
+////////////AddBtn関連ここまで///////////////////////////////////////////////////////////////////////////
+
+////////////ディクショナリのセット/////////////////////////////////////////////////////////////////////////
+
 -(void)setDictionary{
     
     //カテゴリーリストを読み込む。
@@ -420,6 +424,10 @@
     
 }
 
+////////////ディクショナリのセットここまで/////////////////////////////////////////////////////////////////////
+
+////////////テーブルビュー関連///////////////////////////////////////////////////////////////////////////////
+
 #pragma TableView
 
 -(void)TableviewSetUp{
@@ -429,50 +437,48 @@
     self.myList.dataSource = self;
     self.myList.delegate = self;
     
-//    //一番下までスクロールできるようにする
-//    self.edgesForExtendedLayout = UIRectEdgeAll;
     //セルの複数選択を許可しない
     self.myList.allowsMultipleSelectionDuringEditing = NO;
 
 
 }
 
+//行数の指定
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     
     [self FilteredArrayMethod];
     
-
     //左画面をいじってない状態orカテゴリーメニューですべてが選ばれたら
     if( (!self.CategoryNamefromLeft) || ([self.CategoryNamefromLeft isEqualToString:@"すべて"])){
     
         //大元配列のカウントを返す。
-        FilteredArray = _myArray;
-        return FilteredArray.count;
+        _FilteredArray = _myArray;
+        return _FilteredArray.count;
     
         }else{
         
         
-            BOOL flag;
-            flag = [self.CategoryNamefromLeft isEqualToString:_CategoryNamefromLeft];
+        BOOL flag;
+        flag = [self.CategoryNamefromLeft isEqualToString:_CategoryNamefromLeft];
         
         
-                if ( flag ) {
+            if ( flag ) {
             
             
-                    //フィルターのかかった配列のカウントを返す。
-                    return FilteredArray.count;
+                //フィルターのかかった配列のカウントを返す。
+                return _FilteredArray.count;
             
             
-                        }else{
+            }else{
             
-                                //そうじゃなかったら元配列のカウントを返す。
-                                FilteredArray = _myArray;
-                                return FilteredArray.count;
-                        }
+                //そうじゃなかったら元配列のカウントを返す。
+                _FilteredArray = _myArray;
+                return _FilteredArray.count;
+            }
 
-                }
+        }
 
-}
+    }
     
 
 
@@ -490,49 +496,59 @@
   
   */
     
+    
      checkListCell *checklistCell  = [tableView dequeueReusableCellWithIdentifier:@"checkListCell"
                                                                    forIndexPath:indexPath];
-
     
     //カスタムセルに行数を覚えさせる
     checklistCell.indicateRow = indexPath.row;
 
-
-    
     //配列の中の子ディクショナリにフィルターのかかった配列の中身を代入
-    _listcontent = FilteredArray[indexPath.row];
+    _listcontent = _FilteredArray[indexPath.row];
+    _listcontent2 = _checkedArray[indexPath.row];
     
     
-    if( (!self.CategoryNamefromLeft) || ([self.CategoryNamefromLeft isEqualToString:@"すべて"])){
-        
-        //親配列の中の子ディクショナリを取り出す
-        NSDictionary *listContents = _myArray[indexPath.row];
-        
-        //取り出した子ディクショナリの中からKeyがTODOの要素をセルに返す
-        checklistCell.todoTextLabel.text = [NSString stringWithFormat:@"%@",[listContents objectForKey:@"TODO"]];
-        
-            }else{
+//if([self.CategoryNamefromLeft isEqualToString:@"完了済み"]){
+//    
+//    checklistCell.todoTextLabel.text = [NSString stringWithFormat:@"%@",[_listcontent2 objectForKey:@"TODO"]];
+//    
+//    }else{
     
-                BOOL flag;
-                flag = [self.CategoryNamefromLeft isEqualToString:_CategoryNamefromLeft];
+        if( (!self.CategoryNamefromLeft) || ([self.CategoryNamefromLeft isEqualToString:@"すべて"])){
         
-                    if ( flag ) {
-                        if(indexPath.row == 0){
-                            //checklistCell = nil;
-                            //checklistCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-                                                }
+            //親配列の中の子ディクショナリを取り出す
+            NSDictionary *listContents = _myArray[indexPath.row];
+        
+            //取り出した子ディクショナリの中からKeyがTODOの要素をセルに返す
+            checklistCell.todoTextLabel.text = [NSString stringWithFormat:@"%@",[listContents objectForKey:@"TODO"]];
+        
+        }else{
+    
+            BOOL flag;
+            flag = [self.CategoryNamefromLeft isEqualToString:_CategoryNamefromLeft];
+        
+                if ( flag ) {
+                    if(indexPath.row == 0){
+                        //checklistCell = nil;
+                        //checklistCell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+                    }
 
             checklistCell.todoTextLabel.text = [NSString stringWithFormat:@"%@",[_listcontent objectForKey:@"TODO"]];
             
-            NSLog(@"FilteredArray=%@",FilteredArray);
+            NSLog(@"FilteredArray=%@",_FilteredArray);
     
-                                }
-                    }
-     checklistCell.todoTextLabel.textColor = [UIColor darkGrayColor];
-     checklistCell.todoTextLabel.font = [UIFont fontWithName:@"Hiragino Kaku Gothic Pro" size:16];
+                }
+              }
+    
+    checklistCell.todoTextLabel.textColor = [UIColor darkGrayColor];
+    checklistCell.todoTextLabel.font = [UIFont fontWithName:@"Hiragino Kaku Gothic Pro" size:16];
     return checklistCell;
     
-}
+    }
+    
+
+    
+
 
 
 //行が選択された時のメソッド
@@ -564,6 +580,7 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     //左カテゴリーメニューを何も選択していない状態か、すべてが押されたとき
 
     if( (!self.CategoryNamefromLeft) || ([self.CategoryNamefromLeft isEqualToString:@"すべて"])){
+        
         if (editingStyle == UITableViewCellEditingStyleDelete) {
         
             // 削除ボタンが押された行のデータを配列から削除します。
@@ -574,10 +591,10 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
             //削除された情報をplistへ上書きする。
             [_myArray writeToFile:_wannadoFilepath atomically:YES];
         
-                }else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        }else if (editingStyle == UITableViewCellEditingStyleInsert) {
                     // ここは空のままでOKです。
-                                                                                }
-                    }else{
+        }
+                }else{
         
                         // 削除ボタンが押された行のデータを配列から削除します。
         
@@ -588,58 +605,33 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         
                         for(NSMutableDictionary* temp in tmpMyArray){
             
-                                if ([[temp objectForKey:@"Category"] isEqualToString:self.CategoryNamefromLeft]) {
-                                        if(i == indexPath.row){
+                            if ([[temp objectForKey:@"Category"] isEqualToString:self.CategoryNamefromLeft]) {
+                                if(i == indexPath.row){
                                             
-                                            NSIndexPath* tempindex = [[NSIndexPath alloc] init];
-                                            tempindex = [NSIndexPath indexPathForRow:count inSection:0];
+                                    NSIndexPath* tempindex = [[NSIndexPath alloc] init];
+                                    tempindex = [NSIndexPath indexPathForRow:count inSection:0];
                     
                     
-                                                //配列そのものから削除
-                                                [_myArray removeObjectAtIndex:count];
+                                    //配列そのものから削除
+                                    [_myArray removeObjectAtIndex:count];
                     
-                                                //消去ボタンが押された行をテーブルビューから削除します。
-                                                [_myList deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                                    //消去ボタンが押された行をテーブルビューから削除します。
+                                    [_myList deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
                     
-                                                //削除された情報をplistへ上書きする。
-                                                [_myArray writeToFile:_wannadoFilepath atomically:YES];
+                                    //削除された情報をplistへ上書きする。
+                                    [_myArray writeToFile:_wannadoFilepath atomically:YES];
                     
-                                                                }
+                                 }
             
                                     i++;
-                                }
-            count++;
-            break;
-        }
-    
-        
-    }
-    
-
-    
-}
-
-
-
--(void)FilteredArrayMethod{
-    
-    
-    //フィルター用の配列
-    FilteredArray = [NSMutableArray array];
-    
-    //myArrayから一つずつ子ディクショナリをfiliterdDicとして取り出す
-    for (NSMutableDictionary * FiltererdDic in _myArray){
-        
-        //もしfilteredDicのカテゴリーが左側の画面で押された行の中身と同じだったら。
-        if( [[FiltererdDic objectForKey:@"Category"] isEqualToString:_CategoryNamefromLeft]){
-            
-            //フィルター用の配列にその子ディクショナリを入れていく。無分類じゃなかったら無視！
-            [FilteredArray addObject:FiltererdDic];
-    
-        }
-        
-    }
-    
+                                
+                                    }
+                            count++;
+                            break;
+                            
+                            }
+                    
+                        }
 }
 
 
@@ -658,6 +650,54 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
     }
     
 }
+
+-(void)FilteredArrayMethod{
+    
+    
+    //フィルター用の配列
+    _FilteredArray = [NSMutableArray array];
+    
+    //myArrayから一つずつ子ディクショナリをfiliterdDicとして取り出す
+    for (NSMutableDictionary * FiltererdDic in _myArray){
+        
+      
+        
+        //もしfilteredDicのカテゴリーが左側の画面で押された行の中身と同じだったら。
+        if( [[FiltererdDic objectForKey:@"Category"] isEqualToString:_CategoryNamefromLeft]
+           && [FiltererdDic objectForKey:[NSNumber numberWithBool:YES]]){
+            
+            //フィルター用の配列にその子ディクショナリを入れていく。
+            [_FilteredArray addObject:FiltererdDic];
+            
+            
+        }
+        
+    }
+    
+}
+
+-(void)CheckedArrayMethod{
+
+    //チェック用の配列
+    _checkedArray = [NSMutableArray array];
+    
+    //myArrayから一つずつ子ディクショナリをfiliterdDicとして取り出す
+    for (NSMutableDictionary * FiltererdDic in _myArray){
+        
+        NSLog(@"コンプリート%@",[FiltererdDic objectForKey:@"Complete_flag"]);
+        
+        //compflagがYESだったら
+        if( [FiltererdDic objectForKey:@"Complete_flag"] ){
+            
+            //フラグがyesのものだけをcheckedArrayに追加
+            [_checkedArray addObject:FiltererdDic];
+        
+        }
+        
+    }
+
+}
+
 
 
 - (void)didReceiveMemoryWarning

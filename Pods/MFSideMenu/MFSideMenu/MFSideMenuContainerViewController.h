@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "MFSideMenuShadow.h"
 
+
 extern NSString * const MFSideMenuStateNotificationEvent;
 
 typedef enum {
